@@ -1,12 +1,39 @@
 p {
   font-size: 1.5rem;
   display: block;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   margin-left: 0;
   margin-right: 0;
 }
 
+h1, h2, h3 {
+  font-size: 2rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+a {
+  font-size: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  margin-right: 0;
+}
+
 .pic1 {
+  max-width: 80%;
+}
+
+.pic2, .pic3 {
   max-width: 100%;
+}
+
+.warning {
+  font-size: 2rem;
+  text-align: center;
 }
