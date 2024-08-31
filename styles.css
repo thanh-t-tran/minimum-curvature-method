@@ -1,5 +1,5 @@
 p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   display: block;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -32,15 +32,38 @@ a {
   margin-right: 0;
 }
 
-.pic1 {
+.pic1, .pic2, .pic3 {
   max-width: 80%;
 }
 
-.pic2, .pic3 {
-  max-width: 100%;
+.sidenote{
+  text-align: center;
 }
 
 .warning {
-  font-size: 2rem;
+  font-size: 1.8rem;
   text-align: center;
+}
+
+.author {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  
+  width: 50%;
+  text-align: left;
+  padding: 8px;
+}
+
+td:last-child, th:last-child {
+  border-right: none;
 }
