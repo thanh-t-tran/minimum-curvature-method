@@ -15,43 +15,141 @@
         <a class="about" href="about.html">About</a>
       </div>
     </div>
+    <p>
+      The minimum curvature method is used to write VBA code in xlsm for survey calculation. <br> <br>
+      User defined functions starting with mc are intended to be used in excel sheets. <br> <br>
+      Here are the functions included in the Excel file
+    </p>
     <div>
       <p>
-        Here are the functions included in the Excel file
+        Notation:
+      </p>
+      <ul>
+        <li>MD: Measure Depth</li>
+        <li>I1: Incination 1 (degrees)</li>
+        <li>I2: Incination 2 (degrees)</li>
+        <li>A1: Aziimuth 1 (Degrees)</li>
+        <li>A2: Aziimuth 2 (Degrees)</li>
+    </ul>
+      <p style="text-align: center;">
+        <b>Minimum curvature method Functions</b>
       </p>
 
       <table class="functions">
         <tr>
-          <th>function1</th>
-          <th>explain1</th>
+          <th>Function</th>
+          <th>Explain</th>
         </tr>
         <tr>
-          <td>function1</td>
-          <td>explain1</td>
+          <td>mcVertial(I1, I2, A1, A2, DL)</td>
+          <td>calculates the TVD</td>
         </tr>
         <tr>
-          <td>function1</td>
-          <td>explain1</td>
+          <td>mcEast(I1, I2, A1, A2, DL) </td>
+          <td>calculates the Easting</td>
         </tr>
         <tr>
-          <td>function1</td>
-          <td>explain1</td>
+          <td>mcNorth(I1, I2, A1, A2, DL)
+          </td>
+          <td>calculates the Northing</td>
         </tr>
         <tr>
-          <td>function1</td>
-          <td>explain1</td>
+          <td>DLS30Deg(I1, I2, DeltaAz, DL)</td>
+          <td> calculates Dogleg for 30 length units
+          </td>
         </tr>
         <tr>
-          <td>function1</td>
-          <td>explain1</td>
+          <td>DLS100Deg(I1, I2, DeltaAz, DL)</td>
+          <td> calculates Dogleg for 100 length units
+          </td>
         </tr>
         <tr>
-          <td>function1</td>
-          <td>explain1</td>
+          <td>DL = MD2-MD1</td>
+          <td>the measure depth between survey station 1 and 2 unit</td>
         </tr>
       </table>
-
     </div>
+
+
+    <p style="text-align: center;">
+      <b>Interpolation Functions</b>
+    </p>
+
+    <table class="functions">
+      <tr>
+        <th>Function</th>
+        <th>Explain</th>
+      </tr>
+      <tr>
+        <td>mcGetInclinationfromMD(SurveyRange, MD)</td>
+        <td>explain1</td>
+      </tr>
+      <tr>
+        <td>mcGetAzimuthfromMD(SurveyRange As Range, MD As Double)</td>
+        <td>explain1</td>
+      </tr>
+      <tr>
+        <td>mcGetTVDfromMD</td>
+        <td>explain1</td>
+      </tr>
+      <tr>
+        <td>mcGetNorthfromMD</td>
+        <td>explain1</td>
+      </tr>
+      <tr>
+        <td>mcGetEastfromMD</td>
+        <td>explain1</td>
+      </tr>
+      <tr>
+        <td>mcGetDLS100fromMD</td>
+        <td>explain1</td>
+      </tr>
+      <tr>
+        <td>mcGetDLS30fromMD</td>
+        <td>explain1</td>
+      </tr>
+      <tr>
+        <td>function1</td>
+        <td>explain1</td>
+      </tr>
+      <tr>
+        <td>function1</td>
+        <td>explain1</td>
+      </tr>
+    </table>
+
+
+    <p>
+      These VBA (user defined function) functions using Minimum Curvature method for survey calculation 
+      Survey station given by 3 parameter (MD, Incl, Az) <br>
+
+
+      Refer to…drilling formula… <br>
+
+      mcVertical <br>
+      mcEast <br>
+      mcNorth<br>
+
+      Functions using whole survey table to calculate value at middle points<br>
+
+      Functions to calculate survey values for specified measures depth  or tvd <br>
+
+      These functions assume data in a range has a specific format.<br>
+      From that <br>
+
+      mcGet… fromMD<br>
+      mcGet… fromTVD<br>
+
+      The survey sheet assumes a format..<br>
+      ..it will scan the first column down until an empty row, recalculate the survey… then Make interpolation…<br>
+      First parameter is the top left cell of the survey table.<br>
+      Second parameter is measured depth/ tvd<br>
+      Need to be calculated from.<br>
+
+      These functions help to map survey data 
+
+    </p>
+
     <p class="author">By Tran Tuan Lam - 2024</p>
     <script src="script.js"></script>
   </body>
