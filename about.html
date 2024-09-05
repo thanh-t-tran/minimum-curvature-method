@@ -25,11 +25,13 @@
         Notation:
       </p>
       <ul>
-        <li>MD: Measure Depth</li>
+        <li>MD1: Measured Depth 1</li>
+        <li>MD2: Measured Depth 2</li>
         <li>I1: Incination 1 (degrees)</li>
         <li>I2: Incination 2 (degrees)</li>
         <li>A1: Aziimuth 1 (Degrees)</li>
         <li>A2: Aziimuth 2 (Degrees)</li>
+        <li>DL = MD2 - MD1</li>
     </ul>
       <p style="text-align: center;">
         <b>Minimum curvature method Functions</b>
@@ -42,37 +44,42 @@
         </tr>
         <tr>
           <td>mcVertial(I1, I2, A1, A2, DL)</td>
-          <td>calculates the TVD</td>
+          <td>Calculate the TVD</td>
         </tr>
         <tr>
           <td>mcEast(I1, I2, A1, A2, DL) </td>
-          <td>calculates the Easting</td>
+          <td>calculate the Easting</td>
         </tr>
         <tr>
           <td>mcNorth(I1, I2, A1, A2, DL)
           </td>
-          <td>calculates the Northing</td>
+          <td>Calculate the Northing</td>
         </tr>
         <tr>
           <td>DLS30Deg(I1, I2, DeltaAz, DL)</td>
-          <td> calculates Dogleg for 30 length units
-          </td>
+          <td>Calculate Dogleg for 30 length units</td>
         </tr>
         <tr>
           <td>DLS100Deg(I1, I2, DeltaAz, DL)</td>
-          <td> calculates Dogleg for 100 length units
-          </td>
-        </tr>
-        <tr>
-          <td>DL = MD2-MD1</td>
-          <td>the measure depth between survey station 1 and 2 unit</td>
+          <td>Calculate Dogleg for 100 length units</td>
         </tr>
       </table>
     </div>
 
 
     <p style="text-align: center;">
-      <b>Interpolation Functions</b>
+      <b>Interpolation Functions from MD</b>
+    </p>
+
+    <p>
+      These functions will scan the first column of data range down until the empty row, recalculate the survey  then calculate the interpolation of required parameters based on given tvd or td in the middle point.<br> <br>
+      The survey required a data range ís a survey table with predefined format for calculation. <br> <br>
+      Although given only the top left cell it still scans down to get data from a wider range. <br> <br>
+
+      Functions take 2 parameters <br> <br>
+       - First parameter is the top left cell of the survey table. If a range is given it still uses only top left cell then expands to survey range. <br> <br>
+      - Second parameter is measured depth/ tvd which needs to be mapped from.
+
     </p>
 
     <table class="functions">
@@ -82,69 +89,97 @@
       </tr>
       <tr>
         <td>mcGetInclinationfromMD(SurveyRange, MD)</td>
-        <td>explain1</td>
+        <td>Calculate inclination from MD</td>
       </tr>
       <tr>
-        <td>mcGetAzimuthfromMD(SurveyRange As Range, MD As Double)</td>
-        <td>explain1</td>
+        <td>mcGetAzimuthfromMD(SurveyRange, MD)</td>
+        <td>Calculate Azimuth from MD</td>
       </tr>
       <tr>
-        <td>mcGetTVDfromMD</td>
-        <td>explain1</td>
+        <td>mcGetTVDfromMD(SurveyRange, MD)</td>
+        <td>Calculate TVD from MD</td>
       </tr>
       <tr>
-        <td>mcGetNorthfromMD</td>
-        <td>explain1</td>
+        <td>mcGetEastfromMD(r, MD)</td>
+        <td>Calculate Eastthing from MD </td>
       </tr>
       <tr>
-        <td>mcGetEastfromMD</td>
-        <td>explain1</td>
+        <td>mcGetNorthfromMD(r, MD)</td>
+        <td>Calculate Northhing from MD</td>
       </tr>
       <tr>
-        <td>mcGetDLS100fromMD</td>
-        <td>explain1</td>
+        <td>mcGetDLS100fromMD(r, MD)</td>
+        <td>Calculate DLS 100 from MD</td>
       </tr>
       <tr>
-        <td>mcGetDLS30fromMD</td>
-        <td>explain1</td>
-      </tr>
-      <tr>
-        <td>function1</td>
-        <td>explain1</td>
-      </tr>
-      <tr>
-        <td>function1</td>
-        <td>explain1</td>
+        <td>mcGetDLS30fromMD(r, MD)</td>
+        <td>Calculate DLS 30 from MD</td>
       </tr>
     </table>
 
-
+    <p style="text-align: center;">
+      <b>Interpolation Functions from TVD</b>
+    </p>
+  
+    <table class="functions">
+      <tr>
+        <th>Function</th>
+        <th>Explain</th>
+      </tr>
+      <tr>
+        <td> mcGetInclinationfromTVD(SurveyRange, aTVD)</td>
+        <td>Calculate inclination from TVD</td>
+      </tr>
+      <tr>
+        <td>mcGetAzimuthfromTVD(SurveyRange, aTVD)</td>
+        <td>Calculate Azimuth from TVD</td>
+      </tr>
+      <tr>
+        <td> mcGetMDfromTVD(SurveyRange, aTVD)</td>
+        <td>Calculate MD from TVD</td>
+      </tr>
+      <tr>
+        <td>mcGetEastfromTVD(r, aTVD)</td>
+        <td>Calculate Eastthing from TVD </td>
+      </tr>
+      <tr>
+        <td>mcGetNorthfromTVD(r, aTVD)</td>
+        <td>Calculate Northhing from TVD</td>
+      </tr>
+      <tr>
+        <td> mcGetDLS100fromTVD(r, aTVD)</td>
+        <td>Calculate DLS 100 from TVD</td>
+      </tr>
+      <tr>
+        <td>mcGetDLS30fromTVD(r, aTVD)</td>
+        <td>Calculate DLS 30 from TVD</td>
+      </tr>
+    </table>
     <p>
       These VBA (user defined function) functions using Minimum Curvature method for survey calculation 
-      Survey station given by 3 parameter (MD, Incl, Az) <br>
+      Survey station given by 3 parameter (MD, Incl, Az) <br> <br>
 
 
-      Refer to…drilling formula… <br>
+      Refer to…drilling formula… <br> <br>
 
-      mcVertical <br>
-      mcEast <br>
-      mcNorth<br>
+      mcVertical <br><br>
+      mcEast <br><br>
+      mcNorth<br><br>
 
-      Functions using whole survey table to calculate value at middle points<br>
+      Functions using whole survey table to calculate value at middle points<br><br>
 
-      Functions to calculate survey values for specified measures depth  or tvd <br>
+      Functions to calculate survey values for specified measures depth  or tvd <br><br>
 
-      These functions assume data in a range has a specific format.<br>
-      From that <br>
+      These functions assume data in a range has a specific format.<br><br>
+      From that <br><br>
 
-      mcGet… fromMD<br>
-      mcGet… fromTVD<br>
+      mcGet… fromMD<br><br>
+      mcGet… fromTVD<br><br>
 
-      The survey sheet assumes a format..<br>
-      ..it will scan the first column down until an empty row, recalculate the survey… then Make interpolation…<br>
-      First parameter is the top left cell of the survey table.<br>
-      Second parameter is measured depth/ tvd<br>
-      Need to be calculated from.<br>
+      The survey sheet assumes a format...it will scan the first column down until an empty row, recalculate the survey… then Make interpolation…<br><br>
+      First parameter is the top left cell of the survey table.<br><br>
+      Second parameter is measured depth/ tvd<br><br>
+      Need to be calculated from.<br><br>
 
       These functions help to map survey data 
 
