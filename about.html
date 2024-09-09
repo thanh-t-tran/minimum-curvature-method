@@ -10,29 +10,19 @@
   <body>
     <div class="header">
       <div class="section">
-        <a class="home" href="index.html">Main</a>
-        <a class="help" href="help.html">Help</a>
-        <a class="about" href="about.html">About</a>
+        <a class="home" href="index.html"><img class="home-icon" src="/files/icon/icons8-home-50.png"></a>
+        
+        <!-- <a class="help" href="help.html">Help</a> -->
+        <a class="about" href="about.html">VBA Functionss</a>
       </div>
     </div>
     <p>
       The minimum curvature method is used to write VBA code in xlsm for survey calculation. <br> <br>
-      User defined functions starting with mc are intended to be used in excel sheets. <br> <br>
+      User defined functions starting with prefix mc are intended to be used in excel sheets. <br> <br>
       Here are the functions included in the Excel file
     </p>
     <div>
-      <p>
-        Notation:
-      </p>
-      <ul>
-        <li>MD1: Measured Depth 1</li>
-        <li>MD2: Measured Depth 2</li>
-        <li>I1: Incination 1 (degrees)</li>
-        <li>I2: Incination 2 (degrees)</li>
-        <li>A1: Aziimuth 1 (Degrees)</li>
-        <li>A2: Aziimuth 2 (Degrees)</li>
-        <li>DL = MD2 - MD1</li>
-    </ul>
+      
       <p>
         <b>Minimum curvature method Functions</b>
       </p>
@@ -65,23 +55,47 @@
         </tr>
       </table>
     </div>
-    <p >Reference:<a class="ref" href="https://www.drillingformulas.com/minimum-curvature-method/">https://www.drillingformulas.com/minimum-curvature-method/</a> </p>
+    <p>
+      Where:
+    </p>
+    <ul>
+      <li>MD1: Measured Depth of survey station 1</li>
+      <li>MD2: Measured Depth of survey station 2</li>
+      <li>I1: Incination 1 (degrees) of survey station 1</li>
+      <li>I2: Incination 2 (degrees) of survey station 2</li>
+      <li>A1: Aziimuth 1 (degrees) of survey station 1</li>
+      <li>A2: Aziimuth 2 (degrees) of survey station 2</li>
+      DL = MD2 - MD1 - Course length <br>
+      The length unit is determined by the input unit (meter or foot)
+  </ul>
+
+    <p >Reference:</p>
+    <p>1. Sawaryn, S.J. and Thorogood, J.L. 2005. A Compendium of Directional Calculations Based on the Minimum Curvature Method. SPE Drilling & Completion 20 (1): 24-36. SPE-84246-PA.<a class="ref" href="https://doi.org/10.2118/84246-PA">https://doi.org/10.2118/84246-PA</a></p>
+    <p>2. <a class="ref" href="https://www.drillingformulas.com/minimum-curvature-method/">https://www.drillingformulas.com/minimum-curvature-method/</a> </p>
     <br><br> 
 
-    <p>
-      <b>Interpolation Functions from MD</b>
+    <p style="font-size: 1.5rem;">
+      <b>Interpolation Functions</b>
     </p>
+
     <p>
-      These functions will scan the first column of SurveyRange down until the empty row, recalculate the survey  then calculate the interpolation of required parameters based on given tvd or td in the middle point.<br> <br>
-      The SurveyRange required a data range is a survey table with predefined format for calculation. <br> <br>
+      These functions will scan the first column of SurveyRange down until the empty row, recalculate the survey then calculate the interpolation of required parameters based on given TVD or MD in the middle point.<br> <br>
+      The SurveyRange requires a data range is a survey table with predefined format for calculation: The survey table contains at least 6 columns, which are MD, Inclination, Azimuth, TVD, North, East so that the interpolation functions can operate correctly. The table's final row must be left empty, serving as a marker for the functions that the array of chosen data has finished. <br> <br>
       Although given only the top left cell it still scans down to get survery data from a wider range. <br> <br>
     </p>
-    <img class="pic1-about" src="files/images/example table.jpg">
-    <p>
-      Functions take 2 parameters <br> <br>
-       - First parameter (SurveyRange) is the top left cell of the survey table. If a range is given it still uses only top left cell then expands to survey range. <br> <br>
-      - Second parameter (MD/TVD) is measured depth/True vertical depth which is needs to be mapped from.
 
+    <img class="pic1-about" src="files/images/empty row.jpg">
+
+    <p>
+      Functions take 2 parameters: <br> <br>
+       - First parameter (SurveyRange) is the top left cell of the survey table. If a range is given it still uses only the top left cell then expands to survey range. <br> <br>
+      - Second parameter (MD/TVD) is Measured Depth/True vertical depth which it needs to be mapped from.
+    </p>
+
+    <br>
+    
+    <p>
+      <b>Interpolation Functions from MD</b>
     </p>
 
     <table class="functions">
@@ -160,8 +174,14 @@
         <td>Calculate DLS 30 from TVD</td>
       </tr>
     </table>
+    <br><br>
+    <p>
+      <b>Other examples of using interpolation function:</b>
+    </p>
 
-    <p class="author">By Tran Tuan Lam - 2024</p>
+    <img class="pic2-about" src="files/images/example.jpg">
+
+    <p class="author">Tran Tuan Lam - 2024</p>
     <script src="script.js"></script>
   </body>
 </html>
